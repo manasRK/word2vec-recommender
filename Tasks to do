@@ -10,14 +10,14 @@ TODO:
 A. PRE-PROCESSING:
      1.	No reviews less than 10 words – find how much is getting cleaned up to decide the threshold
      2.	Create price ranges – 10, 100, 250, 500, 1000, 2000, 5000, 99999
-     3.	Tag <PRICE> <PRODUCT ID> Title + ‘.’ + Review <PRICE> <PRODUCT ID>
+     3.	Tag <PRICE> <CATEGORY> <PRODUCT ID> Title + ‘.’ + Review <PRODUCT ID> <CATEGORY> <PRICE> 
 
 B. TOKENIZER:
      1.	Phrase & Idioms Tagger - Scrape & load to Redis : bottom line - > bottom_line
      2.	Proper Noun Tagger: Donald Trump - > Donald_Trump
 
 C. NAMED ENTITY TAGGER:
-     1. Pre-process the Wiki Titles from enwiki-latest-all-titles.gz (Download from https://dumps.wikimedia.org/enwiki/latest/): 
+     1. Pre-process the Wiki Titles to load into Redis from enwiki-latest-all-titles.gz (Download from https://dumps.wikimedia.org/enwiki/latest/): 
 	- remove "_" and keep " "
 	- remove words between ()
 	- remove gibberish 

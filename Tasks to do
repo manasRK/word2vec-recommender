@@ -26,3 +26,8 @@ C. NAMED ENTITY TAGGER:
 	- remove words starting with small letters
 	- remove duplicates
      2. Create NNP Parser to identify nouns
+     
+D. RECORD METADATA
+     1. Number of reviews processed
+     2. Exceptions caught
+     3. Total time taken

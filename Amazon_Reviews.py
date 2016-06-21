@@ -18,6 +18,6 @@ def parse(filename):
 
 
 count=0
-for e in parse("C:\Users\Manas\Desktop\Text Analytics Product_SMAS\Data\Amazon Reviews Dataset\Arts.txt.gz"):
+for e in parse("data\Arts.txt.gz"):
   count=count+1
   print count,": ",simplejson.dumps(e)

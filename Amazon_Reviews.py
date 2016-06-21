@@ -20,5 +20,5 @@ def parse(filename):
 count=0
 for e in parse("data\Arts.txt.gz"):
   count=count+1
-  print count,": ",simplejson.dumps(e)
+  print count,": ", simplejson.dumps(e)
   

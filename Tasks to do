@@ -1,0 +1,28 @@
+TODO:
+-	Phrases tagging and replacing the words – ex. Well done becomes well_done. PPDB is a good source for the same
+-	Named Entity Recognition
+-	NNP Phrases tagging , ex. International Institute of Information Technology
+-	Tagging item details before/after each streaming sentence, to maintain context. Like for Item X, the review may be ‘I loved it.’ This converts to <Item X> I loved it </Item X>
+-	Filters for sentiment, weighting outcomes by sentiment.
+-	Gender Detection
+-	Associate the headers description with pricing, reviews and embeddings
+
+A. PRE-PROCESSING:
+     1.	No reviews less than 10 words – find how much is getting cleaned up to decide the threshold
+     2.	Create price ranges – 10, 100, 250, 500, 1000, 2000, 5000, 99999
+     3.	Tag <PRICE> <PRODUCT ID> Title + ‘.’ + Review <PRICE> <PRODUCT ID>
+
+B. TOKENIZER:
+     1.	Phrase & Idioms Tagger - Scrape & load to Redis : bottom line - > bottom_line
+     2.	Proper Noun Tagger: Donald Trump - > Donald_Trump
+
+C. NAMED ENTITY TAGGER:
+     1. Pre-process the Wiki Titles from enwiki-latest-all-titles.gz (Download from https://dumps.wikimedia.org/enwiki/latest/): 
+	- remove "_" and keep " "
+	- remove words between ()
+	- remove gibberish 
+	- remove words with exclamation marks
+	- split on comma and make into different words
+	- remove words starting with small letters
+	- remove duplicates
+     2. Create NNP Parser to identify nouns

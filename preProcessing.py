@@ -54,7 +54,7 @@ def processData(data,category,output_file):
   try:
     review = data["review/text"]
     if len(review.split())>10:
-      print "old price ",data["product/price"], "new price ",getRange(data["product/price"])
+      print "old price ", data["product/price"], "new price ", getRange(data["product/price"])
       price = getRange(data["product/price"])
       final_data = "<" + str(price) + "> <" + category + "> <" + data["product/productId"] + "> " + data["product/title"] + ". " + review + " <" + str(price) + "> <" + category + "> <" + data["product/productId"] + ">"
       print final_data
@@ -92,7 +92,7 @@ def loadData(data_folder, output_folder):
   start = timeit.default_timer()
 
   for file in os.listdir(BASE_DIR+"/"+data_folder):
-    category = file.split(".")[0]  
+    category = file.strip('reviews json gz . _').replace('_', ' ')
     for row in parse(BASE_DIR+"/"+data_folder+"/"+file):
       processData(row, category, output_folder)
   

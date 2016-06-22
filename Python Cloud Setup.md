@@ -17,7 +17,10 @@ sudo pip install greenlet
 sudo pip install gevent
 <br>
 ##Build Numpy, Scipy & Scikit
-sudo pip install numpy scipy scikit-learn
 <br>
+sudo apt-get install libblas-dev liblapack-dev libatlas-base-dev gfortran
+<br>
+sudo pip install numpy scipy scikit-learn
+
 ##Install language dependencies
 sudo pip install unidecode redis nltk

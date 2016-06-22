@@ -104,7 +104,7 @@ class MySentences(object):
                 
 def train(data_folder, model_path):
     sentences = MySentences(data_folder)
-    model = gensim.models.Word2Vec(sentences, min_count=10, workers=8, negative=10, sg=1, size = 300, sample=1e-5, hs=1) #v6 
+    model = gensim.models.Word2Vec(sentences, min_count=25, workers=8, negative=10, sg=1, size = 300, sample=1e-3, hs=1) #v1 
     model.init_sims(replace=True)
     model.save(model_path)
 

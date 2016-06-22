@@ -39,7 +39,6 @@ inputfile="output/" # output directory
 #model save name
 fname="output_models/model_22062016.txt"
 
-
 sentences = MySentences(inputfile)
 model = gensim.models.Word2Vec(sentences, min_count=10, workers=8, negative=10, sg=1, size = 300, sample=1e-5, hs=1) #v6 
 model.init_sims(replace=True)

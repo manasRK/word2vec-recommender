@@ -81,13 +81,13 @@ class MySentences(object):
             count=0
             l=0
             for e in parse((os.path.join(self.dirname, fname))):
-                review= json.loads(e.get("reviewText"))
-                title = json.loads(e.get("summary"))
+                review= json.loads(e).get("reviewText")
+                title = json.loads(e).get("summary")
                 all_text = title + ". " + review
                 all_text = process_phrases(all_text)
               
                 if len(review.split())>10: # don't consider reviews less than 10 words
-                  productId = json.loads(e.get("asin"))
+                  productId = json.loads(e).get("asin")
                   try:
                     price = getRange(price_obj.get(productId))
                   except:

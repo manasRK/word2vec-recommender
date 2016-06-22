@@ -106,8 +106,9 @@ class MySentences(object):
                 
 def train(data_folder, model_path):
     sentences = MySentences(data_folder)
-    model = gensim.models.Word2Vec(sentences, min_count=25, workers=8, negative=10, sg=1, size = 300, sample=1e-3, hs=1, window = 10) #a1 
+    #model = gensim.models.Word2Vec(sentences, min_count=25, workers=8, negative=10, sg=1, size = 300, sample=1e-3, hs=1, window = 10) #a1 
     #model = gensim.models.Word2Vec(sentences, min_count=10, workers=6, negative=3, sg=0, size = 300, sample=1e-5, hs=0, window = 5) #a2 
+    model = gensim.models.Word2Vec(sentences, min_count=10, workers=4, negative=5, sg=0, size = 300, sample=1e-3, hs=1, window = 5) #a3
     # ./word2vec -train train100B.txt -read-vocab voc -output vectors.bin -cbow 1 -size 300 -window 5 -negative 3 -hs 0 -sample 1e-5 -threads 12 -binary 1 -min-count 10
     model.init_sims(replace=True)
     model.save(model_path)

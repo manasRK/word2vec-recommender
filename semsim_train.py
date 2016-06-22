@@ -1,8 +1,8 @@
-
-import os
-from nltk.corpus import stopwords
 import re
+import os
+import sys
 
+from nltk.corpus import stopwords
 stop = stopwords.words('english')
 
 import gensim

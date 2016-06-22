@@ -83,6 +83,7 @@ class MySentences(object):
             for e in parse((os.path.join(self.dirname, fname))):
                 review= json.loads(e).get("reviewText")
                 title = json.loads(e).get("summary")
+                category = fname.strip('reviews json gz . _').replace('_', ' ')
                 all_text = title + ". " + review
                 all_text = process_phrases(all_text)
               

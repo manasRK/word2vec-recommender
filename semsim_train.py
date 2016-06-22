@@ -63,7 +63,7 @@ def pre_process(m):
     #print m
     #m=re.sub("[^a-zA-Z]", " ",m) #keep text only
     #m="".join(l for l in m if l not in string.punctuation) #remove punctuation
-    #m = m.strip('./,')
+    m = m.strip('./@!#')
     m=[i for i in m.split() if i not in stop] #remove stopwords
     #m=m.split()
     print m
@@ -84,7 +84,7 @@ class MySentences(object):
             for e in parse((os.path.join(self.dirname, fname))):
                 review= json.loads(e).get("reviewText")
                 title = json.loads(e).get("summary")
-                category = fname.strip('reviews json gz . _').replace('_', ' ')
+                category = fname.strip('reviews json gz . _')
                 all_text = title + ". " + review
                 all_text = process_phrases(all_text)
               

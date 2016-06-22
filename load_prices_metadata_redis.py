@@ -14,7 +14,7 @@ def parse(path):
 
 print 'Starting loading to Redis !'
 
-for l in parse("metadata.json.gz"):
+for l in parse("data/metadata.json.gz"):
   price_obj.set(l.get('asin'), l.get('price'))
 
 print 'Loaded to Redis !'

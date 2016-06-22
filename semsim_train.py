@@ -62,10 +62,11 @@ def pre_process(m):
     m = m.lower().strip() #normalize
     #print m
     #m=re.sub("[^a-zA-Z]", " ",m) #keep text only
-    m="".join(l for l in m if l not in string.punctuation) #remove punctuation
+    #m="".join(l for l in m if l not in string.punctuation) #remove punctuation
+    #m = m.strip('./,')
     m=[i for i in m.split() if i not in stop] #remove stopwords
     #m=m.split()
-    #print m
+    print m
     return m
 
 

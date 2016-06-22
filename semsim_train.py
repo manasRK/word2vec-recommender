@@ -128,7 +128,7 @@ if __name__ == "__main__":
         help="Output model file, in word2vec format")
     args = parser.parse_args()
     
-    data_folder, model_file = (args.data, args.model_output)
+    data_folder, model_path = (args.data, args.model_output)
     logger.info('Picking data from %s...', data_folder)
     
     train(data_folder, model_path)

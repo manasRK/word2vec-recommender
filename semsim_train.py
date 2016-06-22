@@ -63,7 +63,7 @@ def pre_process(m):
     #print m
     #m=re.sub("[^a-zA-Z]", " ",m) #keep text only
     #m="".join(l for l in m if l not in string.punctuation) #remove punctuation
-    m = m.strip(". / @ ! #")
+    m = m.strip("./@!#")
     m=[i for i in m.split() if i not in stop] #remove stopwords
     #m=m.split()
     print m
@@ -101,7 +101,7 @@ class MySentences(object):
                   count +=1
                   l+=len(sents)
                   print 'Count: '," ",count," ",l," ",sents
-                  yield sents.split()
+                  yield sents
 
                 
 def train(data_folder, model_path):

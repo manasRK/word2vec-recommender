@@ -17,6 +17,9 @@ import simplejson
 import json
 import timeit
 import redis
+import glob
+
+
 
 from phrases_extractor import get_phrases
 
@@ -93,10 +96,10 @@ def loadData(data_folder, output_folder):
     FUNCTION : loading data from file 
     OUTPUT : processed data
   '''
-  
+
   start = timeit.default_timer()
 
-  for file in os.listdir(BASE_DIR+"/"+data_folder):
+  for file in glob.glob(BASE_DIR+"/"+data_folder+"/*.json.gz"):
     category = file.strip('reviews json gz . _').replace('_', ' ')
     for row in parse(BASE_DIR+"/"+data_folder+"/"+file):
       processData(row, category, output_folder)
@@ -105,4 +108,4 @@ def loadData(data_folder, output_folder):
 
   print "processing time ", stop - start
 
-# loadData(sys.argv[1], sys.argv[2])
+loadData(sys.argv[1], sys.argv[2])

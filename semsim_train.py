@@ -23,38 +23,38 @@ logger = logging.getLogger(__name__)
 
 
 def parse(filename):
-  g = gzip.open(filename,"r")
-  for l in g:
-    yield json.dumps(eval(l))
+    g = gzip.open(filename,"r")
+    for l in g:
+      yield json.dumps(eval(l))
 
 
 def getRange(price):
-
-  price  = float(price)
-  if price <= 10:
-    return 10
-  elif 10 < price <= 100:
-    return 100
-  elif 100 < price <= 250:
-    return 250
-  elif 250 < price <= 500:
-    return 500
-  elif 500 < price <= 1000:
-    return 1000
-  elif 1000 < price <= 2000:
-    return 2000
-  elif 2000 < price <= 5000:
-    return 5000
-  elif price > 5000:
-    return 9999
+    
+    price  = float(price)
+    if price <= 10:
+      return 10
+    elif 10 < price <= 100:
+      return 100
+    elif 100 < price <= 250:
+      return 250
+    elif 250 < price <= 500:
+      return 500
+    elif 500 < price <= 1000:
+      return 1000
+    elif 1000 < price <= 2000:
+      return 2000
+    elif 2000 < price <= 5000:
+      return 5000
+    elif price > 5000:
+      return 9999
 
 
 def process_phrases(text):
-  phrases = get_phrases(text)
-
-  for phrase in phrases:
-    text = text.replace(phrase, phrase.replace(' ', '_'))
-  return text
+    text = unidecode(text) 
+    phrases = get_phrases(text)
+    for phrase in phrases:
+      text = text.replace(phrase, phrase.replace(' ', '_'))
+    return text
 
 
 def pre_process(m):

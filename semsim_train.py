@@ -8,14 +8,14 @@ stop = stopwords.words('english')
 import gensim
 import string
 import redis
-import simplejson
+import json
 import gzip
 from unidecode import unidecode
 
-from phrases_extractor import get_phrases
-
 import logging
 import argparse
+
+from phrases_extractor import get_phrases
 
 price_obj = redis.Redis("localhost", port=6379, db=1)
 

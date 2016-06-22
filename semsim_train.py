@@ -4,6 +4,7 @@ from nltk.corpus import stopwords
 import re
 
 stop = stopwords.words('english')
+
 import gensim
 import string
 import redis

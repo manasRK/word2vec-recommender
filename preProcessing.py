@@ -18,6 +18,7 @@ import json
 import timeit
 import redis
 import glob
+import np
 
 
 
@@ -25,9 +26,8 @@ from phrases_extractor import get_phrases
 
 price_obj = redis.Redis("localhost", port=6379, db=1)
 
-
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-
+PROCESSED_CNT = 0
 
 def getRange(price):
 
@@ -64,13 +64,13 @@ def processData(data,category,output_file):
   FUNCTION : writing processed reviews in file
   OUTPUT : output_file.txt
   '''
-  print type(data)
+  global PROCESSED_CNT
   try:
     review = data["reviewText"]
     title = data["summary"]
     all_text = title + ". " + review
     all_text = process_phrases(all_text)
-  
+    fobj = open(BASE_DIR+"/output/output.txt","a")
     if len(review.split())>10:
       productId = data["asin"]
       try:
@@ -81,9 +81,10 @@ def processData(data,category,output_file):
       print final_data
       fobj = open(BASE_DIR+"/"+ output_file + ".txt","a")
       fobj.write(final_data+"\n")
-
+      PROCESSED_CNT+=1
   except Exception as e:
     print "Exception ",e
+    fobj.write(str({"EXCEPTION":e,"DATA":data}))
     pass
 
 def parse(filename):
@@ -96,7 +97,8 @@ def loadData(data_folder, output_folder):
     FUNCTION : loading data from file 
     OUTPUT : processed data
   '''
-
+  global PROCESSED_CNT
+  fobj = open(BASE_DIR+"/output/output.txt","a")
   start = timeit.default_timer()
 
   for file in glob.glob(BASE_DIR+"/"+data_folder+"/*.json.gz"):
@@ -105,7 +107,9 @@ def loadData(data_folder, output_folder):
       processData(row, category, output_folder)
   
   stop = timeit.default_timer()
-
-  print "processing time ", stop - start
+  total_time  = np.round(stop - start)
+  print "processing time ", total_time
+  fobj.write(str({"TOTAL_TIME":total_time}+"\n"))
+  fobj.write(str({"PROCESSED_CNT":PROCESSED_CNT}))
 
 loadData(sys.argv[1], sys.argv[2])

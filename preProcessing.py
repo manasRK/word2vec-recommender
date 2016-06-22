@@ -18,6 +18,8 @@ import json
 import timeit
 import redis
 
+from phrases_extractor import get_phrases
+
 price_obj = redis.Redis("localhost", port=6379, db=1)
 
 
@@ -46,6 +48,13 @@ def getRange(price):
 
 
 
+def process_phrases(text):
+  phrases = get_phrases(text)
+
+  for phrase in phrases:
+    text = text.replace(phrase, phrase.replace(' ', '_'))
+  return text
+
 def processData(data,category,output_file):
   '''
   INPUT : data, category, output_file
@@ -55,14 +64,17 @@ def processData(data,category,output_file):
   print type(data)
   try:
     review = data["reviewText"]
-    print review
+    title = data["summary"]
+    all_text = title + ". " + review
+    all_text = process_phrases(all_text)
+  
     if len(review.split())>10:
       productId = data["asin"]
       try:
         price = getRange(price_obj.get(productId))
       except:
         price = 0
-      final_data = "<" + str(price) + "> <" + category + "> <" + productId + "> " + data["product/title"] + ". " + review + " <" + str(price) + "> <" + category + "> <" + productId + ">"
+      final_data = "<" + str(price) + "> <" + category + "> <" + productId + "> " + all_text + " <" + str(price) + "> <" + category + "> <" + productId + ">"
       print final_data
       fobj = open(BASE_DIR+"/"+ output_file + ".txt","a")
       fobj.write(final_data+"\n")
@@ -93,4 +105,4 @@ def loadData(data_folder, output_folder):
 
   print "processing time ", stop - start
 
-loadData(sys.argv[1], sys.argv[2])
+# loadData(sys.argv[1], sys.argv[2])

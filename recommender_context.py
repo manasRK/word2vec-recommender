@@ -1,6 +1,7 @@
 
 import os
 import sys
+import ast
 import gensim
 import json
 from gensim import utils
@@ -11,8 +12,12 @@ import argparse
 
 logger = logging.getLogger(__name__)
 
+import redis
+
+data_obj = redis.Redis("localhost", port=6379, db=2)
+
 class ContextCorpus(object):
-    def __init__(self, contexts, context_prefix='C', example_prefix='I'):
+    def __init__(self, redis_obj, context_prefix='C', example_prefix='I'):
         """
         ContextCorpus(contexts)
         Parameters
@@ -32,24 +37,21 @@ class ContextCorpus(object):
         contexts = {1:{0,1,2,3}, 2:{3,4,5}, 3:{10}}
         cc = ContextCorpus(contexts)
         """
-        self.contexts = contexts
+        self.redis_obj = redis_obj
         self.context_prefix = context_prefix
         self.example_prefix = example_prefix
 
     def __iter__(self):
         """Create 'sentences' that start with the context as a word
            and then also have items as words on the same line """
-        for context, items in self.contexts.iteritems():
-            line = [self.context_prefix + str(context)]
-            line += [self.example_prefix + str(i) for i in items]
+        for key in self.redis_obj.keys("*"):
+            line = [self.context_prefix + str(key)]
+            line += [self.example_prefix + str(i) for i in ast.literal_eval(self.redis_obj.get(key))]
             yield line
 
 
-def train(dict_file, model_file):
-    with open(dict_file) as json_data:
-        data = json.load(json_data)
-    
-    contexts = ContextCorpus(data)
+def train(model_file):
+    contexts = ContextCorpus(data_obj)
     #model = gensim.models.Word2Vec(contexts, min_count=5, workers=4, negative=10, sg=1, size = 300, sample=1e-3, hs=1, window = 5) #a1 
     #model = gensim.models.Word2Vec(contexts, min_count=5, workers=4, negative=3, sg=0, size = 300, sample=1e-5, hs=0, window = 5) #a2 
     #model = gensim.models.Word2Vec(contexts, min_count=5, workers=4, negative=5, sg=0, size = 300, sample=1e-3, hs=1, window = 5) #a3
@@ -80,10 +82,10 @@ if __name__ == "__main__":
         help="Output model file, in word2vec format")
     args = parser.parse_args()
     
-    dict_file, model_file = (args.dict, args.model_output)
-    logger.info('Picking data from %s...', dict_file)
+    model_file = args.model_output
+    logger.info('Picking data from %s...', data_obj)
     
-    train(dict_file, model_file)
+    train(model_file)
     
     logger.info("Saving model file %s in %s", model_file, os.path.abspath(model_file))
     logger.info("Finished running %s", program)

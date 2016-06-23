@@ -142,7 +142,7 @@ if __name__ == "__main__":
     
     train(data_folder, model_path)
     
-    logger.info("Saving model file %s in %s", model_file, os.path.abspath(model_file))
+    logger.info("Saving model file %s in %s", model_file, os.path.abspath(model_path))
     logger.info("Finished running %s", program)
     
 

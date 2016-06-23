@@ -67,7 +67,7 @@ def pre_process(m):
     m=[i for i in m.split() if i not in stop] #remove stopwords
     m=[i.strip("./@!#") for i in m] #remove stopwords
     #m=m.split()
-    print m
+    #print m
     return m
 
 

@@ -3,7 +3,7 @@ import gzip
 final_dic = {}
 
 def preProcess(row):
-	
+	print row
 	global final_dic
 	temp = []
 	productId = row["asin"]

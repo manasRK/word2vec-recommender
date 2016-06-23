@@ -97,11 +97,9 @@ class MySentences(object):
                     price = 0
                   
                   count +=1
-                  l+=len(sents)
-                  
                   final_data = "<" + str(price) + "> <" + category + "> <" + productId + "> " + all_text + " <" + str(price) + "> <" + category + "> <" + productId + ">"
-                  
                   sents = pre_process(final_data)
+                  l+=len(sents)
                   print 'Count: '," ",count," ",l," ",sents
                   yield sents
 

@@ -78,10 +78,10 @@ class MySentences(object):
 
     def __iter__(self):
         print os.listdir(self.dirname)
+        count=0
+        l=0
         for fname in os.listdir(self.dirname):
             logger.info('Processing file %s', fname)
-            count=0
-            l=0
             for e in parse((os.path.join(self.dirname, fname))):
                 review= json.loads(e).get("reviewText")
                 title = json.loads(e).get("summary")
@@ -96,11 +96,12 @@ class MySentences(object):
                   except:
                     price = 0
                   
+                  count +=1
+                  l+=len(sents)
+                  
                   final_data = "<" + str(price) + "> <" + category + "> <" + productId + "> " + all_text + " <" + str(price) + "> <" + category + "> <" + productId + ">"
                   
                   sents = pre_process(final_data)
-                  count +=1
-                  l+=len(sents)
                   print 'Count: '," ",count," ",l," ",sents
                   yield sents
 

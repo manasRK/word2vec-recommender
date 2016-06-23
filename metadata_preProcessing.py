@@ -20,10 +20,11 @@ def preProcess(row):
 		alsoViewed = row["related"]["also_viewed"]
 		for ele in alsoViewed:
 			temp.append("a_v_"+ele)
+		data_obj.set(productId, temp)
 	except:
 		pass
 	
-	data_obj.set(productId, temp)
+	
 
 def parse(path): 
 	g = gzip.open(path, 'r') 

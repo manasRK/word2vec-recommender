@@ -1,6 +1,9 @@
 import json 
 import gzip 
-final_dic = {}
+import redis
+
+
+data_obj = redis.Redis("localhost", port=6379, db=2)
 
 def preProcess(row):
 	print row
@@ -20,8 +23,7 @@ def preProcess(row):
 	except:
 		pass
 	
-	final_dic.update({productId:temp})
-	final_dic
+	data_obj.set(productId, temp)
 
 def parse(path): 
 	g = gzip.open(path, 'r') 
@@ -29,14 +31,11 @@ def parse(path):
 		yield (eval(l)) 
  
 def main():
-	global final_dic
-
+	count = 0
 	for row in parse("metadata.json.gz"): 
+		count+=1
+		print count
 		preProcess(row)
-	
-	with open('metadata_parse.json', 'a') as outfile:
-   		json.dump(final_dic,outfile)
-	
 
 
 main()

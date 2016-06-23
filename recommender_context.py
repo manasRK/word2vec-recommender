@@ -75,9 +75,6 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     
     parser.add_argument(
-        "-d", "--dict", required=True,
-        help="Input dict")
-    parser.add_argument(
         "-m", "--model_output", required=True,
         help="Output model file, in word2vec format")
     args = parser.parse_args()

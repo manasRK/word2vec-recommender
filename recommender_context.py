@@ -47,7 +47,7 @@ class ContextCorpus(object):
 
 def train(dict_file, model_file):
     with open(dict_file) as json_data:
-        data = json.loads(json_data)
+        data = json.load(json_data)
     
     contexts = ContextCorpus(data)
     #model = gensim.models.Word2Vec(contexts, min_count=5, workers=4, negative=10, sg=1, size = 300, sample=1e-3, hs=1, window = 5) #a1 

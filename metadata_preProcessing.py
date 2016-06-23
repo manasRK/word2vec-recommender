@@ -7,15 +7,18 @@ def preProcess(row):
 	global final_dic
 	temp = []
 	productId = row["asin"]
-	boughtTogether = row["related"]["bought_together"]
-	for ele in boughtTogether:
-		temp.append("b_t_"+ele)
-	alsoBought = row["related"]["also_bought"]
-	for ele in alsoBought:
-		temp.append("a_b_"+ele)
-	alsoViewed = row["related"]["also_viewed"]
-	for ele in alsoViewed:
-		temp.append("a_v_"+ele)
+	try:
+		boughtTogether = row["related"]["bought_together"]
+		for ele in boughtTogether:
+			temp.append("b_t_"+ele)
+		alsoBought = row["related"]["also_bought"]
+		for ele in alsoBought:
+			temp.append("a_b_"+ele)
+		alsoViewed = row["related"]["also_viewed"]
+		for ele in alsoViewed:
+			temp.append("a_v_"+ele)
+	except:
+		pass
 	
 	final_dic.update({productId:temp})
 	final_dic

@@ -31,22 +31,22 @@ def parse(filename):
 def getRange(price):
     
     price  = float(price)
-    if price <= 10:
+    if price <= 0:
+      return 0
+    elif 0 < price <= 10:
       return 10
-    elif 10 < price <= 100:
+    elif 10 < price <= 25:
+      return 25
+    elif 25 < price <= 50:
+      return 50
+    elif 50 < price <= 100:
       return 100
-    elif 100 < price <= 250:
-      return 250
-    elif 250 < price <= 500:
+    elif 100 < price <= 200:
+      return 200
+    elif 200 < price <= 500:
       return 500
-    elif 500 < price <= 1000:
-      return 1000
-    elif 1000 < price <= 2000:
-      return 2000
-    elif 2000 < price <= 5000:
-      return 5000
-    elif price > 5000:
-      return 9999
+    elif price > 500:
+      return 999
 
 
 def process_phrases(text):
@@ -65,6 +65,7 @@ def pre_process(m):
     #m="".join(l for l in m if l not in string.punctuation) #remove punctuation
     m = m.strip("./@!#")
     m=[i for i in m.split() if i not in stop] #remove stopwords
+    m=[i.strip("./@!#") for i in m.split()] #remove stopwords
     #m=m.split()
     print m
     return m

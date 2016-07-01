@@ -11,7 +11,9 @@ The trick/secret sauce is - How do we account for the 'context' and build it in 
 Note:
 A subset of the engine's functionality was completed during a project undertaken at IASNLP 2016 held by Language Technology Research Center (LTRC), IIIT Hyderabad
 
-Participants: <br>
-Manas Ranjan Kar, Practice Lead, Juxt Smart Mandate <br>
-Akhil Gupta, B.Tech, SRM University <br>
-Vinay Kumar, MS, IIT KGP <br>
+
+|    Author        |              Working As             | contact @|
+| -------------    |:-----------------------------------:| -----:  |
+| Manas Ranjan kar | Practise Lead @ Juxt Smart Mandate  |[@github](https://github.com/manasRK) |
+| Akhil Gupta      | B-tech SRM University               |   [@github](https://github.com/codeorbit) |
+| Vinay Kumar      | MS @ IIT-KGP                        |    [@github](https://github.com/vinay2k2)   |

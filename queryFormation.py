@@ -13,7 +13,7 @@ def queryTokenize(query):
 		if re.search('\d+',ele):
 			temp = ele.split()
 			if temp[0] == "pid":
-				tokens.update({"pid":temp[1]})
+				tokens.update({"orig_pid":temp[1]})
 			if temp[0] == "price":
 				tokens.update({"price":temp[1]})
 		else:

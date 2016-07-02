@@ -14,6 +14,6 @@ A subset of the engine's functionality was completed during a project undertaken
 
 |    Author        |              Working As             | contact @|
 | -------------    |:-----------------------------------:| -----:  |
-| Manas Ranjan kar | Practise Lead @ Juxt Smart Mandate  |[@github](https://github.com/manasRK) |
+| Manas Ranjan kar | Practice Lead @ Juxt Smart Mandate  |[@github](https://github.com/manasRK) |
 | Akhil Gupta      | B-tech SRM University               |   [@github](https://github.com/codeorbit) |
 | Vinay Kumar      | MS @ IIT-KGP                        |    [@github](https://github.com/vinay2k2)   |

@@ -1,3 +1,12 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+# @Author: Akhil Gupta
+# @Email:  akhilgupta.official@gmail.com  
+# @Github username: @codeorbit
+# @Last Modified by:   Akhil Gupta
+# @Last Modified time: 2016-06-28
+
+
 import csv
 import gzip
 

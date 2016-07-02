@@ -1,7 +1,17 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+# @Author: Akhil Gupta
+# @Date:   2016-06-20
+# @Email:  akhilgupta.official@gmail.com  
+# @Github username: @codeorbit
+# @Last Modified by:   Akhil Gupta
+# @Last Modified time: 2016-07-1
+
+
+
 import json 
 import gzip 
 import redis
-
 
 data_obj = redis.Redis("localhost", port=6379, db=2)
 

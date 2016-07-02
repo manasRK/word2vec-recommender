@@ -1,9 +1,18 @@
-import re
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+# @Author: Akhil Gupta
+# @Email:  akhilgupta.official@gmail.com  
+# @Github username: @codeorbit
+# @Last Modified by:   Akhil Gupta
+# @Last Modified time: 2016-07-1
 
+import re
+'''
+Types of query 
 q1 = "michael jackson, jazz, price 50"
 q2 = "michael jackson"
 q3 = "pid B123"
-
+'''
 def queryTokenize(query):
 	
 	tokens = {}
@@ -23,4 +32,3 @@ def queryTokenize(query):
 
 	return tokens
 
-print queryTokenize(q2)

@@ -1,0 +1,61 @@
+
+<!-- -
+@Author: Akhil Gupta
+@Email:  akhilgupta.official@gmail.com  
+@Github username: @codeorbit
+@Last Modified by:   Akhil Gupta
+@Last Modified time: 2016-07-1
+ -->
+
+
+
+<html>
+<head>
+  <title>
+    {{title}} 
+  </title>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Blueprint: Blueprint: Google Grid Gallery" />
+  <meta name="keywords" content="google getting started gallery, image gallery, image grid, template, masonry" /> 
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+  <script src="{{ url_for('static',filename='js/jquery-ui.min.js')}}"></script>
+  <link rel="stylesheet" href="{{ url_for('static',filename='css/style.css') }}">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename = 'css/demo.css')}}" />
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename = 'css/component.css') }}" />
+  <script src = "{{ url_for('static',filename = 'js/modernizr.custom.js') }}"></script>
+  <link rel="stylesheet" href= "{{ url_for('static',filename='css/jquery-ui.min.css') }}">
+  <script src="{{url_for('static',filename = 'js/auto.js')}}"></script>
+  <!-- <script type="text/javascript" src = "{{url_for('static',filename = 'js/main.js')}}"></script> -->
+</head>
+<body>
+<div class="container-fluid">
+  <div class="row top_nav">
+    
+  </div>
+  {% block content %} {% endblock%}
+  <div class="row bottom_nav">
+    <div class="container-fluid footer_con">
+      <div class="col-md-7 col-lg-7 col-sm-12 col-xs-12">
+      </div>
+    </div>
+  </div>
+</div>
+  <script type="text/javascript" src = "{{ url_for('static',filename = 'js/imagesloaded.pkgd.min.js')}}"></script>
+  <script type = "text/javascript" src = "{{ url_for('static',filename = 'js/masonry.pkgd.min.js')}}">  </script>
+  <script type = "text/javascript" src = "{{ url_for('static',filename = 'js/classie.js')}}">  </script>
+  <script type = "text/javascript" src = "{{ url_for('static',filename = 'js/cbpGridGallery.js')}}">  </script>
+  <script>
+      new CBPGridGallery( document.getElementById( 'grid-gallery' ) );
+    </script>
+  
+
+</body>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+</html>

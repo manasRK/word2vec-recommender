@@ -1,0 +1,38 @@
+
+<!-- -
+@Author: Akhil Gupta
+@Email:  akhilgupta.official@gmail.com  
+@Github username: @codeorbit
+@Last Modified by:   Akhil Gupta
+@Last Modified time: 2016-07-1
+ -->
+
+
+{% extends "layout.html" %}
+{% block content %}
+	<div id="grid-gallery" class="grid-gallery">
+		<section class="grid-wrap">
+		<ul class="grid">
+		<li class="grid-sizer"></li><!-- for Masonry column width -->
+			{% for key , value in result.iteritems() %}
+				{% set count = 0 %}					
+					<li>
+						<figure>							
+								<img src="{{value[3]}}" alt="{{value[0]}}"/>								
+								<figcaption><h3>{{value[0]}}</h3><h6><p>price {{value[1]}}</p></h6><br>
+								<p> Category : {{value[2]}}</p>
+								</figcaption>							
+						</figure>
+					</li>				
+			{% endfor %}		
+		</ul>
+		<nav>
+			<span class="icon nav-prev"></span>
+			<span class="icon nav-next"></span>
+			<span class="icon nav-close"></span>
+		</nav>
+		<div class="info-keys icon">Navigate with arrow keys</div>
+	</section><!-- // slideshow -->
+	</div><!-- // grid-gallery -->
+
+{% endblock %}

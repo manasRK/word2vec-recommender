@@ -1,0 +1,24 @@
+
+<!-- -
+@Author: Akhil Gupta
+@Email:  akhilgupta.official@gmail.com  
+@Github username: @codeorbit
+@Last Modified by:   Akhil Gupta
+@Last Modified time: 2016-07-1
+ -->
+
+
+{% extends "layout.html" %}
+{% block content %}
+  <h3> This is the start of my child template</h3>
+  <br>
+  <p>My string: {{my_string}}</p>
+  <p>Value from the list: {{my_list[3]}}</p>
+  <p>Loop through the list:</p>
+  <ul>
+    {% for n in my_list %}
+    <li> hello {{n}}</li>
+    {% endfor %}
+  </ul>
+  <h3> This is the end of my child template</h3>
+{% endblock %}

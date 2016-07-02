@@ -1,0 +1,41 @@
+
+<!-- -
+@Author: Akhil Gupta
+@Email:  akhilgupta.official@gmail.com  
+@Github username: @codeorbit
+@Last Modified by:   Akhil Gupta
+@Last Modified time: 2016-07-1
+ -->
+
+
+{% extends "layout.html" %}
+{% block content %}
+
+ <div class="row main_area">
+    <div class = "options" align = "center">
+<!--       <form id  = "opt">
+        <label><input type="radio" name="options" value="metadata"  checked> Metadata</label><br>
+        <label><input type="radio" name="options" value = "reviews" > Reviews <br>
+      </form> -->
+    </div>
+    <div class="container">
+      <div class="row up_row">
+      </div>
+      <div class="row below_row">
+        <div class="col-md-3 hidden-sm hidden-xs">
+        </div>
+        <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12 search_box">
+          <div class="input-group input-group-md search_input_group">
+            <input type="text" id="search" spellcheck="false" autocomplete="off" autofocus="" class="form-control simplebox" aria-label="Search" placeholder="Search">
+          
+            <span class="input-group-btn"><button id="search_btn" class="btn spanbtn"><span class="glyphicon glyphicon-search"></span></button></span>
+          </div>
+          <div id="div_for_back"></div>
+        </div>
+        <div class="col-md-3 hidden-sm hidden-xs">
+        </div>
+      </div>
+    </div>
+    
+  </div>
+{% endblock %} 

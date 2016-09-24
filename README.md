@@ -1,4 +1,5 @@
 # word2vec-recommender
+[![GitHub license](https://img.shields.io/pypi/l/pyzipcode-cli.svg)](https://img.shields.io/pypi/l/pyzipcode-cli.svg) [![Supported python versions](https://img.shields.io/pypi/pyversions/Django.svg)]([![PyPI](https://img.shields.io/pypi/pyversions/Django.svg)]())
 
 [Talk Submission at Pycon India 2016](https://in.pycon.org/cfp/2016/proposals/creating-a-recommendation-engine-based-on-contextual-word-embeddings~aOZGe/)
 
@@ -9,7 +10,7 @@
 - [Installation](#installation)
 - [What is there inside the box :package: ?](#What-is-there-inside-the-box?)
 - [Contributors](#contributors)
-- [Issues](#issues)
+- [Issues :bug:](#issues)
 
 ## What it is?
 How can we create a recommendation engine that is based both on user browsing history and product reviews? Can I create recommendations purely based on the 'intent' and 'context' of the search?
@@ -19,7 +20,8 @@ This talk will showcase how a recommendation engine can be built with user brows
 ## How it is done?
 
 The trick/secret sauce is - How do we account for the 'context' and build it in our systems? The talk will answer these questions and showcase effectiveness of such a recommender system.
-
+* ## First Milestone :tada:
+    Subset of the engine's functionality was completed during a project undertaken at IASNLP 2016 held by Language Technology Research Center (LTRC), IIIT Hyderabad
 ## Technologies used
 
 * Google's Word2vec
@@ -49,7 +51,5 @@ The trick/secret sauce is - How do we account for the 'context' and build it in 
 | Akhil Gupta      | Intern @ Amazon              |   [@github](https://github.com/codeorbit) |
 | Vinay Kumar      | MS @ IIT-KGP                        |    [@github](https://github.com/vinay2k2)   |
 
-## Issues
+## Issues :bug:
 You can [Manas Ranjan kar](https://twitter.com/manasrnkar) [Akhil Gupta](https://twitter.com/decoding_life) if you can't get it to work. In fact, you should tweet us anyway.
-
-

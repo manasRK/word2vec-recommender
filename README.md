@@ -59,4 +59,4 @@ The trick/secret sauce is - How do we account for the 'context' and build it in 
 | Vinay Kumar      | MS @ IIT-KGP                        |    [@github](https://github.com/vinay2k2)   |
 
 ## Issues :bug:
-You can tweet to [Manas Ranjan kar](https://twitter.com/manasrnkar) or [Akhil Gupta](https://twitter.com/decoding_life) if you can't get it to work. In fact, you should tweet us anyway.
+You can tweet to [Manas Ranjan Kar](https://twitter.com/manasrnkar) or [Akhil Gupta](https://twitter.com/decoding_life) if you can't get it to work. In fact, you should tweet us anyway.

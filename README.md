@@ -1,5 +1,5 @@
 # word2vec-recommender
-[![GitHub license](https://img.shields.io/pypi/l/pyzipcode-cli.svg)](https://img.shields.io/pypi/l/pyzipcode-cli.svg) [![Supported python versions](https://img.shields.io/pypi/pyversions/Django.svg)]([![PyPI](https://img.shields.io/pypi/pyversions/Django.svg)]())
+[![GitHub license](https://img.shields.io/pypi/l/pyzipcode-cli.svg)](https://img.shields.io/pypi/l/pyzipcode-cli.svg) 
 
 [Talk Submission at Pycon India 2016](https://in.pycon.org/cfp/2016/proposals/creating-a-recommendation-engine-based-on-contextual-word-embeddings~aOZGe/)
 
@@ -7,6 +7,7 @@
 - [What it is ??](#what-it-is?) 
 - [How it is done?](#how-it-is-done?)
 - [Technologies used](#technologies-used)
+- [Data and Models](#data-and-models)
 - [Installation](#installation)
 - [What is there inside the box :package: ?](#What-is-there-inside-the-box?)
 - [Contributors](#contributors)
@@ -28,6 +29,12 @@ The trick/secret sauce is - How do we account for the 'context' and build it in 
 * Gensim
 * Numpy
 * Flask, Redis.
+
+
+## Data and Models
+   * Rest of the models (User & Metadata) can be downloaded from https://s3.amazonaws.com/iasnlp-models/output_models.tar
+   * Amazon review data will be made available (for research purposes) on request. Please contact Julian McAuley (julian.mcauley@gmail.com) to obtain a link.
+    Sample data files available at: http://jmcauley.ucsd.edu/data/amazon/
 
 ## Installation
 
@@ -52,4 +59,4 @@ The trick/secret sauce is - How do we account for the 'context' and build it in 
 | Vinay Kumar      | MS @ IIT-KGP                        |    [@github](https://github.com/vinay2k2)   |
 
 ## Issues :bug:
-You can [Manas Ranjan kar](https://twitter.com/manasrnkar) [Akhil Gupta](https://twitter.com/decoding_life) if you can't get it to work. In fact, you should tweet us anyway.
+You can tweet to [Manas Ranjan kar](https://twitter.com/manasrnkar) or [Akhil Gupta](https://twitter.com/decoding_life) if you can't get it to work. In fact, you should tweet us anyway.
